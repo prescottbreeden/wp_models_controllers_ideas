@@ -1,0 +1,48 @@
+﻿@model Register
+<div class="top">
+    <h1>Register to this Cool Site</h1>
+    <a href="/login">Login</a>
+</div>
+<br>
+<div class="body">
+    <form asp-action="Register" asp-controller="Login" method="POST">
+        <div class="box1">
+            
+            <label asp-for="FirstName"></label><br>
+            <span asp-validation-for="FirstName"></span><br>
+            <input asp-for="FirstName"><br>
+
+            
+            <label asp-for="LastName"></label><br>
+            <span asp-validation-for="LastName"></span><br>
+            <input asp-for="LastName"><br>
+
+            
+            <label asp-for="Email"></label><br>
+            <span asp-validation-for="Email"></span><br>
+            <input asp-for="Email"><br>
+        </div>
+
+        <div class="box2">
+            
+            <label asp-for="Password"></label><br>
+            <span asp-validation-for="Password"></span><br>
+            <input asp-for="Password"><br>
+
+           
+            <label asp-for="Confirm"></label><br>
+            <span asp-validation-for="Confirm"></span><br>
+            <input asp-for="Confirm"><br>
+
+        </div>
+
+        <div class="box3">
+            <br>
+            <br>
+            <button type="submit">Sign Up Now</button>
+        </div>
+    </form>
+
+
+</div>
+

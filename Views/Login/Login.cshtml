@@ -1,0 +1,31 @@
+@model LoginUser
+<div class="top">
+    <h1>Login to this Cool Site</h1>
+    <a href="/">Register</a>
+</div>
+<br>
+<div class="body">
+    <form asp-action="Login" asp-controller="Login" method="POST">
+        <div class="box1">
+            <span asp-validation-for="LoginEmail"></span>
+            <label asp-for="LoginEmail"></label><br>
+            <input asp-for="LoginEmail"><br>
+        </div>
+
+        <div class="box2">
+            <span asp-validation-for="LoginPassword"></span>
+            <label asp-for="LoginPassword"></label><br>
+            <input asp-for="LoginPassword"><br>
+
+        </div>
+
+        <div class="box3">
+            <br>
+            <br>
+            <button type="submit">Login Now</button>
+        </div>
+    </form>
+
+
+</div>
+

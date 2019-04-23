@@ -1,0 +1,53 @@
+@model Dashboard
+
+<div class="top">
+    <h1>Welcome to Wedding Planner, @Model.CurrentUser.FirstName!</h1>
+    <a href="/logout">Log Out</a>
+</div>
+<br>
+<div class="body">
+    <table class="table table-striped">
+    <thead>
+        <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Date</th>
+        <th scope="col">Guest</th>
+        <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        @{
+            foreach(var w in Model.AllWeddings)
+            {
+                <tr>
+                    <td><a href="/viewwedding/@w.WeddingId">@w.WedderOne & @w.WedderTwo</a></td>
+                    <td>@w.Date.ToString("dd/MM/yyyy")</td>
+                    <td>@w.RSVPs.Count()</td>
+                    
+                    @if(@w.UserId == Model.CurrentUser.UserId)
+                    {
+                        <td><a href="/delete/@w.WeddingId">Delete</a></td>
+                    }
+                    else
+                    {
+                        @if(w.RSVPs.Any(guest => guest.UserId == Model.CurrentUser.UserId))
+                        {
+                            <td><a href ="/unrsvp/@w.WeddingId">Un-RSVP</a></td>
+                        }
+                        else
+                        {
+                            <td><a href ="/rsvp/@w.WeddingId">RSVP</a></td>
+                        }
+                    }
+                </tr>
+
+            }
+        }
+        
+
+    </tbody>
+    </table>
+    <br>
+    <a href="/addwedding"><button>New Wedding</button></a>
+</div>

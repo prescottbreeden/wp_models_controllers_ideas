@@ -1,0 +1,17 @@
+@model Wedding
+<div class="top">
+    <h1>@Model.WedderOne and @Model.WedderTwo</h1>
+    <a href="/success">DashBoard</a>&nbsp; 
+    <a href="/logout">Log Out</a>
+</div>
+<div class="body">
+    <h2>Date:@Model.Date</h2>
+    <br>
+    <h3>Guests:</h3>
+        @{
+            foreach(var g in @Model.RSVPs)
+            {
+                <h5>@g.User.FirstName</h5>
+            }
+        }
+</div>
